@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { hamburger } from "./entities/hamburger";
+import { Hamburger } from "./entities/Hamburger";
 
 export const AppDataSource = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
     synchronize: true,
     logging: false,
-    entities:[hamburger],
+    entities:[Hamburger],
     migrations: [],
     subscribers: []
 })

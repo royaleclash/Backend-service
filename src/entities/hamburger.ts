@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
-export class hamburger {
+export class Hamburger {
   @PrimaryGeneratedColumn()
   id!: number;
 

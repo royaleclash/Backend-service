@@ -4,7 +4,7 @@ import { Hamburger } from "../entities/Hamburger";
 
 const HamburgerRepository = AppDataSource.getRepository(Hamburger);
 
-// GET - Obtener Todos los Productos
+// GET - Obtener Todas las hamburguesas
 export const getAllHamburger = async(red: Request, res: Response) => {
   try {
     const Hamburger = await HamburgerRepository.find();
@@ -14,7 +14,7 @@ export const getAllHamburger = async(red: Request, res: Response) => {
   }
 };
 
-// GET by ID - Obetener Producto por ID
+// GET by ID - Obetener hamburguesas por ID
 export const getHamburgerById = async(req: Request, res: Response) => {
   try {
     const Hamburger = await HamburgerRepository.findOneBy({
@@ -31,7 +31,7 @@ export const getHamburgerById = async(req: Request, res: Response) => {
   }
 };
 
-// POST - Crear un nuevo Producto
+// POST - Crear una nueva hamburguesa
 export const createHamburger = async(req: Request, res: Response) => {
   try {
     const { name, description, price } = req.body;
@@ -47,7 +47,7 @@ export const createHamburger = async(req: Request, res: Response) => {
   }
 };
 
-// PUT - Actualizar un Producto existente
+// PUT - Actualizar una nueva hamburguesa existente
 export const updateHamburger = async(req: Request, res: Response) => {
   try {
     const { name, description, price } = req.body;
@@ -70,7 +70,7 @@ export const updateHamburger = async(req: Request, res: Response) => {
   }
 };
 
-// DELETE - Borrar un Producto
+// DELETE - Borrar una hamburguesa
 export const deleteHamburger = async(req: Request, res: Response) => {
   try {
     const Hamburger = await HamburgerRepository.findOneBy({

@@ -14,7 +14,7 @@ export const getAllHamburger = async(red: Request, res: Response) => {
   }
 };
 
-// GET by ID - Obetener hamburguesas por ID
+// GET by ID - Obetener hamburguesas por ID.
 export const getHamburgerById = async(req: Request, res: Response) => {
   try {
     const Hamburger = await HamburgerRepository.findOneBy({

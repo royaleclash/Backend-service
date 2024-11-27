@@ -13,4 +13,7 @@ export class Hamburger {
 
   @Column("decimal")
   price!: number;
+
+  @Column("text")
+  imgUrl!: string;
 }

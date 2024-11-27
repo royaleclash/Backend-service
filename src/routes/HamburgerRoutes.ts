@@ -10,46 +10,6 @@ const HamburgerRoutes = Router();
 
 /**
  * @swagger
- * tags:
- *   name: Hamburger
- *   description: CRUD relacionado con hamburguesas
- */
-
-/**
- * @swagger
- * /api/Hamburger:
- *   get:
- *     summary: Obtener todas las hamburguesas
- *     tags: [Hamburger]
- *     responses:
- *       200:
- *         description: Lista de hamburguesas
- */
-HamburgerRoutes.get("/", getAllHamburger);
-
-/**
- * @swagger
- * /api/Hamburger/{id}:
- *   get:
- *     summary: Obtener una hamburguesa por ID
- *     tags: [Hamburger]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *         description: ID de la hamburguesa
- *     responses:
- *       200:
- *         description: Detalles de la hamburguesa
- *       404:
- *         description: Hamburguesa no encontrada
- */
-HamburgerRoutes.get("/:id", getHamburgerById);
-
-/**
- * @swagger
  * /api/Hamburger:
  *   post:
  *     summary: Crear una nueva hamburguesa
@@ -64,6 +24,7 @@ HamburgerRoutes.get("/:id", getHamburgerById);
  *               - name
  *               - description
  *               - price
+ *               - imgUrl
  *             properties:
  *               name:
  *                 type: string
@@ -71,6 +32,8 @@ HamburgerRoutes.get("/:id", getHamburgerById);
  *                 type: string
  *               price:
  *                 type: number
+ *               imgUrl:
+ *                 type: string
  *     responses:
  *       201:
  *         description: Hamburguesa creada
@@ -81,9 +44,9 @@ HamburgerRoutes.post("/", createHamburger);
 
 /**
  * @swagger
- * /api/Hamburger/{id}:
+ * /api/Hamburguesa/{id}:
  *   put:
- *     summary: Actualizar una hamburguesa existente
+ *     summary: Actualizar una Hamburguesa existente
  *     tags: [Hamburger]
  *     parameters:
  *       - in: path
@@ -91,7 +54,7 @@ HamburgerRoutes.post("/", createHamburger);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID de la hamburguesa
+ *         description: ID de la Hamburguesa
  *     requestBody:
  *       required: false
  *       content:
@@ -105,6 +68,8 @@ HamburgerRoutes.post("/", createHamburger);
  *                 type: string
  *               price:
  *                 type: number
+ *               imgUrl:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Hamburguesa actualizada
@@ -114,28 +79,3 @@ HamburgerRoutes.post("/", createHamburger);
  *         description: Error en el servidor
  */
 HamburgerRoutes.put("/:id", updateHamburger);
-
-/**
- * @swagger
- * /api/Hamburger/{id}:
- *   delete:
- *     summary: Eliminar una hamburguesa
- *     tags: [Hamburger]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *         description: ID de la hamburguesa
- *     responses:
- *       200:
- *         description: Hamburguesa eliminada
- *       404:
- *         description: Hamburguesa no encontrada
- *       500:
- *         description: Error en el servidor
- */
-HamburgerRoutes.delete("/:id", deleteHamburger);
-
-export default HamburgerRoutes;

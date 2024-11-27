@@ -10,7 +10,7 @@ export const getAllHamburger = async(red: Request, res: Response) => {
     const Hamburger = await HamburgerRepository.find();
     res.json(Hamburger);
   } catch(error) {
-    res.status(500).json({ message: "Error al obtener productos." });
+    res.status(500).json({ message: "Error al obtener producto." });
   }
 };
 
@@ -24,7 +24,7 @@ export const getHamburgerById = async(req: Request, res: Response) => {
     if(Hamburger) {
       res.json(Hamburger);
     } else {
-      res.status(404).json({ message: "Producto no encontrado" });
+      res.status(404).json({ message: "Hamburguesa no encontrada" });
     }
   } catch(error) {
     res.status(500).json({ message: "Error al obtener el producto." });
@@ -63,7 +63,7 @@ export const updateHamburger = async(req: Request, res: Response) => {
       await HamburgerRepository.save(Hamburger);
       res.json(Hamburger);
     } else {
-      res.status(404).json({ message: "Producto no encontrado" });
+      res.status(404).json({ message: "Hamburguesa no encontrada" });
     }
   } catch(error) {
     res.status(500).json({ message: "Error al actualizar el producto." });
@@ -79,9 +79,9 @@ export const deleteHamburger = async(req: Request, res: Response) => {
 
     if (Hamburger) {
       await HamburgerRepository.remove(Hamburger);
-      res.json({ message: "Producto eliminado." });
+      res.json({ message: "Hamburguesa eliminada." });
     } else {
-      res.status(404).json({ message: "Producto no encontrado." });
+      res.status(404).json({ message: "Hamburguesa no encontrada." });
     }
   } catch(error) {
     res.status(500).json({ message: "Error al eliminar el producto." });

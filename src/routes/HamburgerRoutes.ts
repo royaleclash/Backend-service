@@ -79,3 +79,5 @@ HamburgerRoutes.post("/", createHamburger);
  *         description: Error en el servidor
  */
 HamburgerRoutes.put("/:id", updateHamburger);
+
+export default HamburgerRoutes;
